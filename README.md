@@ -1,71 +1,24 @@
-# Getting Started with Create React App
+# Problem Description
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+You are given two paper strips, each containing a random permutation of numbers in the range [1, 2, ..., N], with no repetitions. Your task is to cut the original paper strip into several pieces and rearrange those pieces to form the desired sequence. The goal is to determine the minimum number of pieces required to achieve this transformation efficiently.
 
-## Available Scripts
+## Function Requirements
 
-In the project directory, you can run:
+Write a function that takes two arrays (original and desired) and returns the minimum number of cut pieces required to rearrange the original array into the desired array. The function should be optimized for time complexity.
 
-### `npm start`
+## Example
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+For the input:
+original = [1, 4, 3, 2]
+desired = [1, 2, 4, 3]
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The output should be 3, as the minimum number of pieces required to transform the original sequence into the desired sequence is 3. The pieces would be:
+(1)
+(4, 3)
+(2)
 
-### `npm test`
+## Approach
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-"# SequenceSplitter" 
+1- Iterate through the desired sequence: Starting from the first element, find the corresponding position of each element in the original array.
+2- Check continuity: If the current element from the desired sequence appears consecutively in the original sequence, continue the current piece. Otherwise, start a new piece.
+3- Count pieces: Track and return the total number of pieces needed to form the desired sequence.
